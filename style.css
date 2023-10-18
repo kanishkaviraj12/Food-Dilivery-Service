@@ -341,3 +341,51 @@ body {
 .detail-favorites{
     font-size: 24px;
 }
+
+.detail-card:hover {
+    box-shadow: Orgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+  
+.detail-card:hover .detail-img {
+    filter: opacity(1);
+}
+  
+.detail-card:hover .detail-name h4 {
+    color: var(--primaryColor);
+}
+  
+.detail-card:hover .price {
+    letter-spacing: 1.5;
+}
+  
+/* mobile view  */
+@media screen and (max-width:648px) {
+    .sidebar {
+      display: none;
+    }
+
+    .main{
+      margin-left: 0;
+    }
+
+    .menu-toggle {
+      display: block;
+      text-decoration: none;
+      font-size: 20px;
+      background-color: var(--whiteColor);
+      color: var(--primaryColor);
+      display: flex;
+      padding: 0 10px;
+      justify-content: center;
+      align-items: center;
+      height: 40px;
+      border-radius: 50%;
+      z-index: 3;
+    }
+
+    .sidebar.active{
+      display: flex;
+      z-index: 18px;
+    }
+}
+  
