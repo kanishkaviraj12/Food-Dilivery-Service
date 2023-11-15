@@ -7,6 +7,61 @@
 
     <title> Food Delivery Services</title>
     <script src="imagesDirectPage.js"></script>
+
+    <style>
+        /* Styles for the checkout form container */
+        #checkoutForm {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Styles for form labels */
+        #actualCheckoutForm label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        /* Styles for form input fields */
+        #actualCheckoutForm input[type="text"],
+        #actualCheckoutForm input[type="email"],
+        #actualCheckoutForm input[type="tel"],
+        #actualCheckoutForm select {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Styles for the checkbox and its label */
+        #actualCheckoutForm .payment-methods {
+            margin-top: 15px;
+        }
+
+        /* Styles for the submit button */
+        #actualCheckoutForm button[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #actualCheckoutForm button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Additional styles for form elements */
+        #actualCheckoutForm #saveCard {
+            margin-right: 5px;
+        }
+    </style>
   
 </head>
 <body>
@@ -185,6 +240,34 @@
                                 <p class="price" id="foodPrice">Rs.152.00</p>
                             </div>
                             <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+                        </div>
+                        <div id="checkoutForm" style="display: none;" class="detail-desc">
+                            <!-- Add your checkout form fields here -->
+                            <form id="actualCheckoutForm">
+                                    <label for="name">Name:</label>
+                                    <input type="text" id="name" name="name" required><br>
+                            
+                                    <label for="email">Email:</label>
+                                    <input type="email" id="email" name="email" required><br>
+                            
+                                    <label for="phone">Phone:</label>
+                                    <input type="tel" id="phone" name="phone" required><br>
+                            
+                                    <label for="address">Address:</label>
+                                    <!-- <input type="text" id="address" name="address" required><br> -->
+                                    <textarea id="address" name="address" rows="5" cols="40"></textarea><br>
+                            
+                                    <label for="payment">Payment Method:</label>
+                                    <select id="payment" name="payment" required>
+                                        <option value="credit">Credit Card</option>
+                                        <option value="paypal">PayPal</option>
+                                    </select>
+                                    <div class="payment-methods">
+                                        <input type="checkbox" id="saveCard" name="saveCard">
+                                        <label for="saveCard">Save card for future purchases</label>
+                                    </div>
+                                <button type="submit">Checkout</button>
+                            </form>
                         </div>
                     </div>
                 </div>

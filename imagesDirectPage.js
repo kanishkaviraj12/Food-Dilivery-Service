@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const foodNameElement = detailCard.querySelector('#foodName');
             const foodDescriptionElement = detailCard.querySelector('#foodDescription');
             const foodPriceElement = detailCard.querySelector('#foodPrice');
+            const checkoutForm = detailCard.querySelector('#checkoutForm');
+            const actualCheckoutForm = detailCard.querySelector('#actualCheckoutForm');
 
             if (detailImg) {
                 detailImg.src = selectedImage;
@@ -41,8 +43,29 @@ document.addEventListener('DOMContentLoaded', function () {
             if (foodPriceElement) {
                 foodPriceElement.textContent = foodPrice; // Set the food price
             }
+
+            // Set the style properties for centering and resizing the card
+            detailCard.style.display = 'flex';
+            detailCard.style.flexDirection = 'column';
+            detailCard.style.alignItems = 'center';
+            detailCard.style.justifyContent = 'center';
+            detailCard.style.width = '35%'; // Set your desired width
+            detailCard.style.margin = 'auto';
+
+             // Show the checkout form
+             checkoutForm.style.display = 'block';
+
+             // Add a submit event listener to the actual checkout form
+             if (actualCheckoutForm) {
+                 actualCheckoutForm.addEventListener('submit', function (event) {
+                     // Prevent the default form submission (you can handle the submission logic here)
+                     event.preventDefault();
+                     alert('Checkout form submitted!');
+                 });
+             }
         }
         document.body.appendChild(imageElement);
+
     } else {
         const messageElement = document.createElement('p');
         messageElement.textContent = 'No image selected';

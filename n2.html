@@ -1,62 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Checkout Page</title>
-  <style>
-    /* Add your styles here */
-    #item-image {
-      max-width: 100%;
-      height: auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Add your CSS styles here */
+        .detail-card {
+            /* Add your card styles here */
+        }
+
+        /* Add more styles as needed */
+    </style>
 </head>
 <body>
 
-  <div>
-    <label for="item-select">Select Item:</label>
-    <select id="item-select" onchange="changeItemImage()">
-      <option value="item1">Item 1</option>
-      <option value="item2">Item 2</option>
-      <option value="item3">Item 3</option>
-    </select>
-  </div>
+<div class="detail-card">
+    <img class="detail-img" src="" alt="Selected Image">
+    <div>
+        <h2 id="foodName"></h2>
+        <p id="foodDescription"></p>
+        <p id="foodPrice"></p>
+    </div>
+    <button id="showCheckoutBtn">Show Checkout</button>
+    <div id="checkoutForm" style="display: none;">
+        <!-- Add your checkout form fields here -->
+        <form id="actualCheckoutForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
 
-  <div>
-    <img id="item-image" src="images/wine.jpg" alt="Item Image">
-  </div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
 
-  <!-- Add other checkout elements here -->
+            <!-- Add more fields as needed -->
 
-  <script>
-    // Add your script here
-    function changeItemImage() {
-      var selectedItem = document.getElementById("item-select").value;
-      var itemImage = document.getElementById("item-image");
+            <button type="submit">Checkout</button>
+        </form>
+    </div>
+</div>
 
-      // Update the image source based on the selected item
-      switch (selectedItem) {
-        case "item1":
-          itemImage.src = "images/burger.jpg";
-          break;
-        case "item2":
-          itemImage.src = "images/pizza.jpg";
-          break;
-        case "item3":
-          itemImage.src = "C:\Users\Kanishka\Desktop\New folder\images\wine.jpg";
-          break;
-        // Add more cases as needed for additional items
-        default:
-          // Default image or handle other cases
-          itemImage.src = "path/to/default-image.jpg";
-          break;
-      }
-    }
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // ... (existing code)
 
-    // Initialize the image on page load
-    changeItemImage();
-  </script>
+        if (selectedImage) {
+            // Insert the selected image into the detail-card
+            const detailCard = document.querySelector('.detail-card');
+            if (detailCard) {
+                const detailImg = detailCard.querySelector('.detail-img');
+                const foodNameElement = detailCard.querySelector('#foodName');
+                const foodDescriptionElement = detailCard.querySelector('#foodDescription');
+                const foodPriceElement = detailCard.querySelector('#foodPrice');
+                const showCheckoutBtn = detailCard.querySelector('#showCheckoutBtn');
+                const checkoutForm = detailCard.querySelector('#checkoutForm');
+                const actualCheckoutForm = detailCard.querySelector('#actualCheckoutForm');
+
+                if (detailImg) {
+                    detailImg.src = selectedImage;
+                }
+
+                if (foodNameElement) {
+                    foodNameElement.textContent = foodName; // Set the food name
+                }
+
+                if (foodDescriptionElement) {
+                    foodDescriptionElement.textContent = foodDescription; // Set the food description
+                }
+
+                if (foodPriceElement) {
+                    foodPriceElement.textContent = foodPrice; // Set the food price
+                }
+
+                // Set the style properties for centering and resizing the card
+                detailCard.style.display = 'flex';
+                detailCard.style.flexDirection = 'column';
+                detailCard.style.alignItems = 'center';
+                detailCard.style.justifyContent = 'center';
+                detailCard.style.width = '50%'; // Set your desired width
+                detailCard.style.margin = 'auto';
+
+                // Add a click event listener to show the checkout form
+                showCheckoutBtn.addEventListener('click', function () {
+                    // Toggle the visibility of the checkout form
+                    if (checkoutForm.style.display === 'none') {
+                        checkoutForm.style.display = 'block';
+                    } else {
+                        checkoutForm.style.display = 'none';
+                    }
+                });
+
+                // Add a submit event listener to the actual checkout form
+                if (actualCheckoutForm) {
+                    actualCheckoutForm.addEventListener('submit', function (event) {
+                        // Prevent the default form submission (you can handle the submission logic here)
+                        event.preventDefault();
+                        alert('Checkout form submitted!');
+                    });
+                }
+            }
+
+            document.body.appendChild(imageElement);
+        } else {
+            const messageElement = document.createElement('p');
+            messageElement.textContent = 'No image selected';
+            document.body.appendChild(messageElement);
+            console.error('No image path found in the URL.');
+        }
+    });
+</script>
 
 </body>
 </html>
