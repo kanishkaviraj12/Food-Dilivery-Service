@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Page</title>
+</head>
+<body>
+
+    <!-- Second Page Content -->
+    <h1>Selected Image</h1>
+
+    <!-- JavaScript to retrieve the selected image path from the URL parameter -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+                const results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+
+            // Get the selected image path from the URL parameter
+            const selectedImage = getParameterByName('selectedImage');
+
+            // Display the selected image on the second page
+            const imageElement = document.createElement('img');
+            if (selectedImage) {
+                imageElement.src = selectedImage;
+                imageElement.alt = 'Selected Image';
+                document.body.appendChild(imageElement);
+            } else {
+                const messageElement = document.createElement('p');
+                messageElement.textContent = 'No image selected';
+                document.body.appendChild(messageElement);
+                console.error('No image path found in the URL.');
+            }
+        });
+    </script>
+
+</body>
+</html>
