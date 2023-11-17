@@ -1,26 +1,50 @@
 <?php
-// Check if the form is submitted
+include('connection.php');
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the input values
-    $username = $_POST["username"];
+    $email = $_POST["emailaddress"];
     $password = $_POST["password"];
 
-    // Here, you would typically validate the input and check against a database
-    // For simplicity, let's just check if the username is "admin" and password is "adminpass" for admin,
-    // and "user" and "userpass" for a user
+    // Validate user input (sanitize, prevent SQL injection, etc.)
 
-    if ($username === "admin" && $password === "adminpass") {
-        // Successful admin login
-        echo "<script>alert('Admin login successful!');</script>";
-    } elseif ($username === "user" && $password === "userpass") {
-        // Successful user login
-        echo "<script>alert('User login successful!');</script>";
+    // Fetch user data from the database
+    $sql = "SELECT * FROM register WHERE Eaddress = '$email'";
+    $result = mysqli_query($conn, $sql);
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        $user = mysqli_fetch_assoc($result);
+
+        // Check if the user is an admin
+        if ($user['is_admin'] == 1) {
+            // Admin login - verify password (assuming stored as plain text for this example)
+            if ($password === $user['pass']) {
+                // Password matches, admin login successful
+                echo "<script>alert('Admin Login successful!');</script>";
+                header("Location: adminloggedfood.html"); // Redirect to admin dashboard
+                exit();
+            } else {
+                echo "<script>alert('Incorrect email or password for admin.');</script>";
+            }
+        } else {
+            // Regular user login - verify password (assuming stored as plain text for this example)
+            if ($password === $user['pass']) {
+                // Password matches, user login successful
+                echo "<script>alert('User Login successful!');</script>";
+                header("Location: loggedfood.html"); // Redirect to user dashboard
+                exit();
+            } else {
+                echo "<script>alert('Incorrect email or password for user.');</script>";
+            }
+        }
     } else {
-        // Failed login
-        echo "<script>alert('Invalid username or password.');</script>";
+        echo "<script>alert('User not found.');</script>";
     }
+
+    mysqli_close($conn);
 }
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,8 +94,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="login-container">
     <h2>Login</h2>
     <form id="loginForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+        <label for="Emaill address">Email Address:</label>
+        <input type="text" id="username" name="emailaddress" required>
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>

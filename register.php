@@ -1,23 +1,31 @@
 <?php
-// Check if the registration form is submitted
+include('connection.php');
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get the input values
-    //$newUsername = $_POST["new_username"];
+    $Fullname = $_POST["fname"];
+    $Address = $_POST["address"];
+    $Email = $_POST["email"];
+    $Telephone_Number = $_POST["nb"];
     $newPassword = $_POST["new_password"];
     $confirmPassword = $_POST["confirm_password"];
 
-    // Here, you would typically perform validation and store the user information in a database
-    // For simplicity, let's just check if the passwords match
-
+    // Validation - Check if passwords match before inserting into the database
     if ($newPassword === $confirmPassword) {
-        // Registration successful
-        echo "<script>alert('Registration successful!');</script>";
+        $sql = "INSERT INTO register (fname, address, Eaddress, tp, pass, cpass) VALUES ('$Fullname', '$Address', '$Email', '$Telephone_Number', '$newPassword', '$confirmPassword')";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "<script>alert('New record created successfully');</script>";
+        } else {
+            echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        }
     } else {
-        // Passwords do not match
         echo "<script>alert('Passwords do not match. Please try again.');</script>";
     }
+
+    mysqli_close($conn);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -67,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="registration-container">
     <h2>Registration</h2>
-    <form id="registrationForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <form id="registrationForm" action=" <?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <label for="new_fname">Full Name:</label>
         <input type="text" id="fname" name="fname" required>
 
@@ -110,3 +118,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
+

@@ -1,0 +1,6 @@
+# is_admin value changed sql
+
+    UPDATE register
+    SET is_admin = 1
+    WHERE Eaddress = 'admin@gmail.com';
+#
