@@ -6,63 +6,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <title> Food Delivery Services</title>
-    <script src="imagesDirectPage.js"></script>
-
-    <style>
-        /* Styles for the checkout form container */
-        #checkoutForm {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 15px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Styles for form labels */
-        #actualCheckoutForm label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-
-        /* Styles for form input fields */
-        #actualCheckoutForm input[type="text"],
-        #actualCheckoutForm input[type="email"],
-        #actualCheckoutForm input[type="tel"],
-        #actualCheckoutForm select {
-            width: 100%;
-            padding: 5px;
-            margin-bottom: 5px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        /* Styles for the checkbox and its label */
-        #actualCheckoutForm .payment-methods {
-            margin-top: 15px;
-        }
-
-        /* Styles for the submit button */
-        #actualCheckoutForm button[type="submit"] {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        #actualCheckoutForm button[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
-        /* Additional styles for form elements */
-        #actualCheckoutForm #saveCard {
-            margin-right: 5px;
-        }
-    </style>
-  
 </head>
 <body>
 
@@ -82,9 +25,9 @@
         </div>
 
         <!-- Logout -->
-        <div class="sidebar-logout">
+        <!-- <div class="sidebar-logout">
             <a href="#"><ion-icon name="log-out-outline"></ion-icon>Logout</a>
-        </div>
+        </div> -->
     </div>
 
     <!-- Main -->
@@ -101,7 +44,7 @@
             <!-- profile icon on left side of the navbar-->
             <div class="profile">
                     <a class="cart" href="#"><ion-icon name="cart-outline"></ion-Icon></a>
-                    <a class="user" href="#"><ion-icon name="person-outline"></ion-Icon>
+                    <a class="user" href="login.php"><ion-icon name="person-outline"></ion-Icon>
                 </a>
             </div>
         </div>
@@ -231,44 +174,141 @@
             <div class="main-detail">
                 <h2 class="main-title">Choose Order</h2>
                 <div class="detail-wrapper"> 
+
                     <div class="detail-card">
-                        <img class="detail-img" src="">
+                        <a href="checkout.html?selectedImage=images/seafood.jpg&foodName=See Food&foodDescription=Lorem ipsum dolor sit amet consectetur provident doloremque minima&foodPrice=Rs.152.00">
+                        <img class="detail-img" src="images/seafood.jpg" alt="Image 1">
+                        </a>
+
                         <div class="detail-desc">
                             <div class="detail-name">
-                                <h4 id="foodName">Pizza</h4>
+                                <h4 id="foodName">See Food</h4>
                                 <p class="detail-sub" id="foodDescription">Lorem ipsum dolor sit amet consectetur provident doloremque minima</p>
                                 <p class="price" id="foodPrice">Rs.152.00</p>
                             </div>
                             <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
                         </div>
-                        <div id="checkoutForm" style="display: none;" class="detail-desc">
-                            <!-- Add your checkout form fields here -->
-                            <form id="actualCheckoutForm">
-                                    <label for="name">Name:</label>
-                                    <input type="text" id="name" name="name" required><br>
-                            
-                                    <label for="email">Email:</label>
-                                    <input type="email" id="email" name="email" required><br>
-                            
-                                    <label for="phone">Phone:</label>
-                                    <input type="tel" id="phone" name="phone" required><br>
-                            
-                                    <label for="address">Address:</label>
-                                    <textarea id="address" name="address" rows="5" cols="40"></textarea><br>
-                            
-                                    <label for="payment">Payment Method:</label>
-                                    <select id="payment" name="payment" required>
-                                        <option value="credit">Credit Card</option>
-                                        <option value="paypal">PayPal</option>
-                                    </select>
-                                    <div class="payment-methods">
-                                        <input type="checkbox" id="saveCard" name="saveCard">
-                                        <label for="saveCard">Save card for future purchases</label>
-                                    </div>
-                                <button type="submit">Checkout</button>
-                            </form>
+                    </div>
+
+                    <div class="detail-card">
+                        <a href="checkout.html?selectedImage=images/pizza.jpg&foodName=Pizza&foodDescription=Lorem ipsum dolor sit amet consectetur provident doloremque minima&foodPrice=Rs.200.00">
+                        <img class="detail-img" src="images/pizza.jpg">
+                        </a>
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4 id="foodName">Pizza</h4>
+                                <p class="detail-sub" id="foodDescription">Lorem ipsum dolor sit amet consectetur provident doloremque minima</p>
+                                <p class="price" id="foodPrice">Rs.200.00</p>
+                            </div>
+                            <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
                         </div>
                     </div>
+
+                    <div class="detail-card">
+                        <a href="checkout.html?selectedImage=images/Wine.jpg&foodName=Wine&foodDescription=Lorem ipsum dolor sit amet consectetur provident doloremque minima&foodPrice=Rs.300.00">
+                            <img class="detail-img" src="images/wine.jpg">
+                        </a>
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4 id="foodName">Wine</h4>
+                                <p class="detail-sub" id="foodDescription">Lorem ipsum dolor sit amet consectetur provident doloremque minima</p>
+                                <p class="price" id="foodPrice">Rs.300.00</p>
+                            </div>
+                            <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <a href="checkout.html?selectedImage=images/burger.jpg&foodName=Burger&foodDescription=Lorem ipsum dolor sit amet consectetur provident doloremque minima&foodPrice=Rs.250.00">
+                            <img class="detail-img" src="images/burger.jpg">
+                        </a>
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4 id="foodName">Burger</h4>
+                                <p class="detail-sub" id="foodDescription">Lorem ipsum dolor sit amet consectetur provident doloremque minima</p>
+                                <p class="price" id="foodPrice">Rs.250.00</p>
+                            </div>
+                            <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <a href="checkout.html?selectedImage=images/coffee.jpg&foodName=Coffee&foodDescription=Lorem ipsum dolor sit amet consectetur provident doloremque minima&foodPrice=Rs.350.00">
+                            <img class="detail-img" src="images/coffee.jpg">
+                        </a>
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4 id="foodName">Coffee</h4>
+                                <p class="detail-sub" id="foodDescription">Lorem ipsum dolor sit amet consectetur provident doloremque minima</p>
+                                <p class="price" id="foodPrice">Rs.350.00</p>
+                            </div>
+                            <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <a href="checkout.html?selectedImage=images/salad.jpg&foodName=Salad&foodDescription=Lorem ipsum dolor sit amet consectetur provident doloremque minima&foodPrice=Rs.200.00">
+                            <img class="detail-img" src="images/salad.jpg">
+                        </a>
+                        <div class="detail-desc">
+                            <div class="detail-name">
+                                <h4 id="foodName">Salad</h4>
+                                <p class="detail-sub" id="foodDescription">Lorem ipsum dolor sit amet consectetur provident doloremque minima</p>
+                                <p class="price" id="foodPrice">Rs.200.00</p>
+                            </div>
+                            <ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>
+                        </div>
+                    </div>
+
+                    <?php
+                        // Establish a connection to your database (MySQL)
+                        include('connection.php');
+                        
+                        // Fetch data from the database
+                        $sql = "SELECT food_name, description, price, image_path FROM food_items";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                            // Output data of each row
+                            while($row = $result->fetch_assoc()) {
+                                // Modify the image path to match the correct URL format
+                                $imagePath = str_replace('../uploads/', 'uploads/', $row["image_path"]);
+
+                                // Output HTML for each food item card using modified image path
+                                echo '<div class="detail-card">';
+                                echo '<a href="checkout.php?selectedImage=' . $imagePath . '&foodName=' . $row["food_name"] . '&foodDescription=' . $row["description"] . '&foodPrice=' . $row["price"] . '">';
+                                echo '<img class="detail-img" src="' . $imagePath . '">';
+                                echo '</a>';
+                                echo '<div class="detail-desc">';
+                                echo '<div class="detail-name">';
+                                echo '<h4>' . $row["food_name"] . '</h4>';
+                                echo '<p class="detail-sub">' . $row["description"] . '</p>';
+                                echo '<p class="price">Rs.' . $row["price"] . '</p>';
+                                echo '</div>';
+                                echo '<ion-icon class="detail-favorites" name="bookmark-outline"></ion-icon>';
+                                echo '</div>';
+                                echo '</div>';
+                            }
+                        } else {
+                            echo "0 results";
+                        }
+
+                        // Close the connection
+                        $conn->close();
+                    ?>
+
+
+
+
+
+                    
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>

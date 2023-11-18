@@ -1,0 +1,69 @@
+/* Form container style */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Add Food Modal style */
+.modal {
+    width: 70%; /* Adjust the width as needed */
+    max-width: 350px; /* Set a maximum width */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form title style */
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+/* Label style */
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Input fields style */
+input[type="text"],
+textarea,
+input[type="file"],
+input[type="submit"] {
+    width: calc(100% - 24px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Input and textarea focus style */
+input[type="text"]:focus,
+textarea:focus,
+input[type="file"]:focus {
+    outline: none;
+    border-color: #5E9ED6;
+    box-shadow: 0 0 5px #5E9ED6;
+}
+
+/* Submit button style */
+input[type="submit"] {
+    background-color: #5E9ED6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Submit button hover effect */
+input[type="submit"]:hover {
+    background-color: #3A729B;
+}

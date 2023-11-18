@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($password === $user['pass']) {
                 // Password matches, admin login successful
                 echo "<script>alert('Admin Login successful!');</script>";
-                header("Location: adminloggedfood.html"); // Redirect to admin dashboard
+                header("Location: Admin/dashboard.php"); // Redirect to admin dashboard
                 exit();
             } else {
                 echo "<script>alert('Incorrect email or password for admin.');</script>";
