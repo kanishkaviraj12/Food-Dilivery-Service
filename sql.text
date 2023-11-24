@@ -4,3 +4,18 @@
     SET is_admin = 1
     WHERE Eaddress = 'admin@gmail.com';
 #
+
+
+#To store user IDs in the format '001', '002',
+
+ALTER TABLE register
+ADD COLUMN user_id VARCHAR(3);
+
+SET @counter = 0;
+UPDATE register
+SET user_id = LPAD((@counter := @counter + 1), 3, '0')
+ORDER BY user_id;
+
+# RENAME table name
+RENAME TABLE `order` TO `checkout`;
+#

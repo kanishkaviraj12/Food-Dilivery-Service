@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const foodDescriptionElement = detailCard.querySelector('#foodDescription');
             const foodPriceElement = detailCard.querySelector('#foodPrice');
             const checkoutForm = detailCard.querySelector('#checkoutForm');
-            const actualCheckoutForm = detailCard.querySelector('#actualCheckoutForm');
+            //const actualCheckoutForm = detailCard.querySelector('#actualCheckoutForm');
 
             if (detailImg) {
                 detailImg.src = selectedImage;
@@ -56,13 +56,18 @@ document.addEventListener('DOMContentLoaded', function () {
              checkoutForm.style.display = 'block';
 
              // Add a submit event listener to the actual checkout form
-             if (actualCheckoutForm) {
-                 actualCheckoutForm.addEventListener('submit', function (event) {
-                     // Prevent the default form submission (you can handle the submission logic here)
-                     event.preventDefault();
-                     alert('Checkout form submitted!');
-                 });
-             }
+            //  if (actualCheckoutForm) {
+            //      actualCheckoutForm.addEventListener('submit', function (event) {
+            //          // Prevent the default form submission (you can handle the submission logic here)
+            //          event.preventDefault();
+            //          alert('Checkout form submitted!');
+            //      });
+            //  }
+
+             
+
+
+
         }
         document.body.appendChild(imageElement);
 

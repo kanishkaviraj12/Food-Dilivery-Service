@@ -62,6 +62,12 @@
             margin-right: 5px;
         }
     </style>
+
+    <script>
+            function showMessage(message) {
+                alert(message); // This creates an alert pop-up with the given message
+            }
+    </script>
   
 </head>
 <body>
@@ -244,7 +250,7 @@
                         </div>
                         <div id="checkoutForm" style="display: none;" class="detail-desc">
                             <!-- Add your checkout form fields here -->
-                            <form id="actualCheckoutForm">
+                            <form id="actualCheckoutForm" action="" method="POST">
                                     <label for="name">Name:</label>
                                     <input type="text" id="name" name="name" required><br>
                             
@@ -269,13 +275,42 @@
                                 <button type="submit">Checkout</button>
                             </form>
                         </div>
+
+                        <?php
+                            include('connection.php');
+                            // Check if the form is submitted
+                            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                                // Retrieve form data
+                                $name = $_POST['name'];
+                                $email = $_POST['email'];
+                                $phone = $_POST['phone'];
+                                $address = $_POST['address'];
+                                $payment = $_POST['payment'];
+                                $saveCard = isset($_POST['saveCard']) ? 1 : 0; // If saveCard is checked, set to 1, else 0
+
+                                // Prepare and execute SQL statement to insert data
+                                $sql = "INSERT INTO checkout (name, email, phoneNB, address, paymentMethod,save_card ) VALUES ('$name', '$email', '$phone', '$address', '$payment','$saveCard')";
+                                
+
+                                if (mysqli_query($conn, $sql)) {
+                                    echo '<script>showMessage("Your order was successfully");</script>';
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                                }
+                                
+                            } 
+                                                        
+                            else {
+                                echo "Form submission error";
+                            }
+                            $conn->close();
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
       
-
 </body>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
