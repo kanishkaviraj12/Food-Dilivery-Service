@@ -12,22 +12,12 @@
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+<div align="center">
+    <img src="https://skillicons.dev/icons?i=javascript" /><br>
+    <img src="https://skillicons.dev/icons?i=mysql,html,css,php" />
+</div>
 
-[![Next][Next.js]][Next-url]
 
-
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
-
-### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
-* [Next.js][Next-url]
 
 
 
