@@ -9,4 +9,4 @@
 
 > Additional information or tag line
 
-![Image description](https://github.com/kanishkaviraj12/Food-Dilivery-Service/blob/main/assets/74193616/d66dc875-5576-428f-8d1f-4f5e40a826bc.png)
+![Image description](https://github.com/kanishkaviraj12/Food-Dilivery-Service/raw/main/assets/74193616/d66dc875-5576-428f-8d1f-4f5e40a826bc.png)
