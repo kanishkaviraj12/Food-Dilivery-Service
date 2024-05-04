@@ -13,8 +13,8 @@
 ### Built With
 
 <div align="center">
-    <img src="https://skillicons.dev/icons?i=javascript" /><br>
-    <img src="https://skillicons.dev/icons?i=mysql,html,css,php" />
+    <img src="https://skillicons.dev/icons?i=javascript,mysql" /><br>
+    <img src="https://skillicons.dev/icons?i=html,css,php" />
 </div>
 
 
